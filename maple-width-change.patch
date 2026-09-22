@@ -1,0 +1,46 @@
+# 应用的方法：在 themes/maple 目录下执行 git apply -p1 /path/to/maple-width-change.patch（或 patch -p1 < ...）
+diff --git a/layout/_partial/toc.ejs b/layout/_partial/toc.ejs
+index ecd7fc8..6dd6c6d 100644
+--- a/layout/_partial/toc.ejs
++++ b/layout/_partial/toc.ejs
+@@ -1,2 +1,2 @@
+ <!-- tocbot -->
+-<nav class="post-toc toc text-sm w-48 relative top-32 right-0 opacity-70 hidden lg:block" style="position: fixed !important;"></nav>
++<nav class="post-toc toc text-sm w-48 relative top-32 right-0 opacity-70 hidden xl:block" style="position: fixed !important;"></nav>
+diff --git a/layout/post.ejs b/layout/post.ejs
+index 97ad0a1..d9e4a35 100644
+--- a/layout/post.ejs
++++ b/layout/post.ejs
+@@ -5,7 +5,7 @@
+ <% if (toc(page.content).length !== 0) { %>
+   <%- partial('_partial/toc') %>
+ <% } %>
+-<section class="px-6 max-w-prose mx-auto md:px-0">
++<section class="px-6 max-w-4xl mx-auto md:px-0">
+   <!-- header -->
+   <header class="overflow-hidden pt-6 pb-6 md:pt-12">
+     <div class="pt-4 md:pt-6">
+@@ -45,7 +45,7 @@
+     </div>
+   </header>
+   <!-- content -->
+-  <article class="post-content prose m-auto slide-enter-content dark:prose-invert">
++  <article class="post-content prose max-w-none m-auto slide-enter-content dark:prose-invert">
+     <%- page.content %>
+   </article>
+   <!-- tag -->
+diff --git a/source/css/main.styl b/source/css/main.styl
+index ae58c20..cb41648 100644
+--- a/source/css/main.styl
++++ b/source/css/main.styl
+@@ -16,6 +16,10 @@ a:hover
+   color: #de7441
+   cursor: pointer
+ 
++/* article fills the width defined by its container */
++.post-content.prose
++  max-width: none
++
+ ::-webkit-scrollbar-track
+   background-color: var(--c-bg);
+ 
