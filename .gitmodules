@@ -1,0 +1,3 @@
+[submodule "themes/maple"]
+	path = themes/maple
+	url = https://github.com/xbmlz/hexo-theme-maple.git

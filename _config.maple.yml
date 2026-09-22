@@ -1,0 +1,6 @@
+# Overrides for hexo-theme-maple.
+# Hexo merges this file on top of themes/maple/_config.yml,
+# so theme updates via submodule no longer overwrite your settings.
+
+links:
+  Github: https://github.com/MoonLiyTheLily/
